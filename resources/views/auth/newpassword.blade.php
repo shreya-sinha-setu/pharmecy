@@ -1,0 +1,69 @@
+@extends('admin.layouts.app')
+@section('title','new password Password')
+@section('user-not-login')
+
+<div class="home-btn d-none d-sm-block">
+    <a href="#"><i class="fas fa-home h2 text-white"></i></a>
+</div>
+
+<div class="account-pages w-100 mt-5 mb-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6 col-xl-5">
+                <div class="card">
+
+                    <div class="card-body p-4">
+
+                        <div class="text-center mb-4">
+                            <a href="index.html">
+                                <!--<span><img src="{{ asset('assets/images/logo-dark.png') }}" alt="" height="28"></span>-->
+                            </a>
+                        </div>
+
+
+                        
+
+                        <form method="POST" action="{{ route('reset.password.post') }}" class="pt-2">
+                            @csrf
+                            <input type="text" hidden name="token" value="{{$token}}">
+                            <div class="form-group mb-3">
+                                <label for="" class="form-level">Enter Your Email:</label>
+                                <input type="email" class="form-control" name='email'>
+                                
+                            </div>
+
+                            <div class='mb-3'>
+                                 <label for="" class="form-level">Enter new password:</label>
+                                 <input type="password" class="form-control" name='password'>
+                                 <small class="text-danger">Maximum 6 Character</small>
+                            </div>
+                            <div class='mb-3'>
+                                 <label for="" class="form-level">Confirm password:</label>
+                                 <input type="password" class="form-control" name='password_confirmation'>
+                            </div>
+
+
+                            <div class="form-group mb-0 text-center">
+                                <button class="btn btn-success btn-block" type="submit"> Submit </button>
+
+                            </div>
+
+                        </form>
+
+
+
+
+
+
+                    </div> <!-- end card-body -->
+                </div>
+                <!-- end card -->
+
+            </div> <!-- end col -->
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</div>
+<!-- end page -->
+@endsection
